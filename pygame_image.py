@@ -21,18 +21,22 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         kk_rct.move_ip((-1,0))
+        sum_mv = [0, 0]
         key_lst = pg.key.get_pressed()  # 練習8-3：キーの押下状態を取得
         if key_lst[pg.K_UP]:  # 上矢印キーがTrueなら
-            kk_rct.move_ip((0, -1))  # こうかとんの縦座標を-1する
+            sum_mv[1] -= 1 # こうかとんの縦座標を-1する
 
         if key_lst[pg.K_DOWN]:  # 下矢印キーがTrueなら
-            kk_rct.move_ip((0, +1))  # こうかとんの縦座標を+1する
+            #kk_rct.move_ip((0, +1))  # こうかとんの縦座標を+1する
+            sum_mv[1] += 1
 
         if key_lst[pg.K_LEFT]:  # 左矢印キーがTrueなら
-            kk_rct.move_ip((-1, 0))  # こうかとんの横座標を-1する
+            #kk_rct.move_ip((-1, 0))  # こうかとんの横座標を-1する
+            sum_mv[0] -= 1
 
         if key_lst[pg.K_RIGHT]:  # 右矢印キーがTrueなら
-            kk_rct.move_ip((+2, 0))  # こうかとんの横座標を+1から倍速にする
+            #kk_rct.move_ip((+2, 0))  # こうかとんの横座標を+1から倍速にする
+            sum_mv[0] += 2
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
         screen.blit(bg_img2, [x+1600, 0])
