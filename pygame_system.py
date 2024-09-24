@@ -30,7 +30,7 @@ def main():
 
 
 if __name__ == "__main__":
-    pg.init()
+    pg.init()#Pygameモジュールの初期化
     main()
     pg.quit()
     sys.exit()
